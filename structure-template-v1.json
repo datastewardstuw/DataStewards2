@@ -2,112 +2,194 @@
   "dmp": {
     "contact": {
       "contact_id": {
-        "contact_id": [],
-        "contact_id_type": []
+        "contact_id": "NULL",
+        "contact_id_type": "NULL"
       },
-      "mail": [],
-      "name": []
+      "mail": "NULL",
+      "name": "NULL"
     },
     "cost": {
-      "currency_code": [],
-      "description": [],
-      "title": [],
-      "value": []
+      "currency_code": [
+        "EUR",
+        "USD"
+      ],
+      "description": "NULL",
+      "title": "NULL",
+      "value": "NULL"
     },
-    "created": {},
+    "created": "NULL",
     "dm_staff": {
-      "contributor_type": [],
-      "mbox": [],
-      "name": [],
+      "contributor_type": [
+        null,
+        null
+      ],
+      "mbox": "NULL",
+      "name": "NULL",
       "staff_id": {
-        "staff_id": [],
-        "staff_id_type": []
+        "staff_id": "NULL",
+        "staff_id_type": [
+          null,
+          null
+        ]
       }
     },
-    "dmp_id": {},
+    "dmp_id": {
+      "dmp_id": "NULL",
+      "dmp_id_type": [
+        null,
+        null
+      ]
+    },
     "dataset": {
-      "data_quality_assurance": [],
+      "data_quality_assurance": "NULL",
       "dataset_id": {
-        "dataset_id": [],
-        "dataset_id_type": []
+        "dataset_id": "NULL",
+        "dataset_id_type": [
+          null,
+          null
+        ]
       },
-      "description": [],
+      "description": "NULL",
       "distribution": {
-        "access_url": [],
-        "available_till": [],
-        "byte_size": [],
-        "data_access": [],
-        "description": [],
-        "download_url": [],
-        "format": [],
+        "access_url": "NULL",
+        "available_till": "NULL",
+        "byte_size": "NULL",
+        "data_access": [
+          null,
+          null
+        ],
+        "description": "NULL",
+        "download_url": "NULL",
+        "format": [
+          null,
+          null
+        ],
         "host": {
-          "availability": [],
-          "backup_frequency": [],
-          "backup_type": [],
-          "certified_with": [],
-          "description": [],
-          "geo_location": [],
-          "pid_system": [],
-          "support_versioning": [],
-          "title": []
+          "availability": "NULL",
+          "backup_frequency": "NULL",
+          "backup_type": "NULL",
+          "certified_with": [
+            null,
+            null
+          ],
+          "description": "NULL",
+          "geo_location": [
+            null,
+            null
+          ],
+          "pid_system": [
+            null,
+            null
+          ],
+          "support_versioning": [
+            "no",
+            "yes",
+            "unknown"
+          ],
+          "title": "NULL"
         },
         "license": {
-          "license_ref": [],
-          "start_date": []
+          "license_ref": "NULL",
+          "start_date": "NULL"
         },
-        "title": []
+        "title": "NULL"
       },
-      "issued": [],
-      "keyword": [],
-      "language": [],
+      "issued": "NULL",
+      "keyword": "NULL",
+      "language": [
+        null,
+        null
+      ],
       "metadata": {
-        "description": [],
-        "language": [],
+        "description": "NULL",
+        "language": "NULL",
         "metadata_id": {
-          "metadata_id": [],
-          "metadata_id_type": []
+          "metadata_id": "NULL",
+          "metadata_id_type": [
+            null,
+            null
+          ]
         }
       },
-      "personal_data": [],
-      "preservation_statement": [],
+      "personal_data": [
+        "no",
+        "yes",
+        "unknown"
+      ],
+      "preservation_statement": "NULL",
       "security_and_privacy": {
-        "description": [],
-        "title": []
+        "description": "NULL",
+        "title": "NULL"
       },
-      "sensitive_data": [],
+      "sensitive_data": [
+        "no",
+        "yes",
+        "unknown"
+      ],
       "technical_resource": {
-        "description": [],
+        "description": "NULL",
         "resource_id": {
-          "technical_resource_id": [],
-          "technical_resource_id_type": []
+          "technical_resource_id": "NULL",
+          "technical_resource_id_type": [
+            null,
+            null
+          ]
         }
       },
-      "title": [],
-      "type": []
+      "title": "NULL",
+      "type": [
+        null,
+        null
+      ]
     },
-    "description": {},
-    "ethical_issues_description": {},
-    "ethical_issues_exists": {},
-    "ethical_issues_report": {},
-    "language": {},
-    "modified": {},
+    "description": "NULL",
+    "ethical_issues_description": "NULL",
+    "ethical_issues_exists": [
+      "no",
+      "yes",
+      "unknown"
+    ],
+    "ethical_issues_report": [
+      "no",
+      "yes"
+    ],
+    "language": [
+      "de",
+      "en",
+      "fr",
+      "ru",
+      "tk",
+      "it"
+    ],
+    "modified": "modified_date",
     "project": {
-      "description": [],
-      "end": [],
+      "description": "NULL",
+      "end": "NULL",
       "funding": {
         "funder_id": {
-          "funder_id": [],
-          "funder_id_type": []
+          "funder_id": "NULL",
+          "funder_id_type": [
+            null,
+            null
+          ]
         },
-        "funding_status": [],
+        "funding_status": [
+          "planned",
+          "applied",
+          "granted",
+          "rejected"
+        ],
         "grant_id": {
-          "grant_id": [],
-          "grant_id_type": []
+          "grant_id": "NULL",
+          "grant_id_type": [
+            null,
+            null
+          ]
         }
       },
-      "start": [],
-      "title": []
+      "start": "NULL",
+      "title": "NULL"
     },
-    "title": {}
+    "title": "NULL"
   }
 }
