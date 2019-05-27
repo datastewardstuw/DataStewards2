@@ -27,10 +27,7 @@
       "name": "NULL",
       "staff_id": {
         "staff_id": "NULL",
-        "staff_id_type": [
-          null,
-          null
-        ]
+        "staff_id_type": "NULL"
       }
     },
     "dmp_id": {
