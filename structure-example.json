@@ -1,0 +1,150 @@
+{
+  "dmp": {
+    "contact": {
+      "contact_id": {
+        "contact_id": "http://orcid.org/0000-0000-0000-0000",
+        "contact_id_type": "HTTP-ORCID"
+      },
+      "mail": "cc@example.com",
+      "name": "Charlie Chaplin"
+    },
+    "cost": [{
+      "currency_code": "EUR",
+      "description": "Costs for maintaining....",
+      "title": "Storage and backup",
+      "value": 1000
+    }, {
+      "currency_code": "USD",
+      "description": "Needed because stuff is dirty.",
+      "title": "Cleaning",
+      "value": 120
+    }],
+    "created": "2019-03-13 13:13",
+    "dm_staff": [{
+      "contributor_type": "researcher",
+      "mbox": "pp@example.com",
+      "name": "Peter Pan",
+      "staff_id": {
+        "staff_id": "http://orcid.org/0000-0000-0000-0001",
+        "staff_id_type": "HTTP-ORCID"
+      }
+    }, {
+      "contributor_type": "researcher",
+      "mbox": "ch@example.com",
+      "name": "Captain Hook",
+      "staff_id": {
+        "staff_id": "http://orcid.org/0000-0000-0000-0002",
+        "staff_id_type": "HTTP-ORCID"
+      }
+    }],
+    "dmp_id": {
+      "dmp_id": "https://doi.org/10.1109/5.771073",
+      "dmp_id_type": "HTTP-DOI"
+    },
+    "dataset": [{
+      "data_quality_assurance": [
+        "We use file naming convention...",
+        "We adhere to the FAIR principles."
+      ],
+      "dataset_id": [{
+        "dataset_id": "http://doi.org/10.5281/zenodo.1172672",
+        "dataset_id_type": "HTTP-DOI"
+      }, {
+        "dataset_id": "http://doi.org/10.5281/zenodo.1172673",
+        "dataset_id_type": "HTTP-DOI"
+      }],
+      "description": "Field observation",
+      "distribution": [{
+        "access_url": "http://some.repo",
+        "available_till": "2030-06-30",
+        "byte_size": 690000,
+        "data_access": "open",
+        "description": "Best quality data before resizing",
+        "download_url": "http://some.repo/download/",
+        "format": "image/tiff",
+        "host": {
+          "availability": "99.5",
+          "backup_frequency": "weekly",
+          "backup_type": "tapes",
+          "certified_with": "CoreTrustSeal",
+          "description": "Repository hosted by...",
+          "geo_location": "AT",
+          "pid_system": [
+            "DOI",
+            "URN"
+          ],
+          "support_versioning": "yes",
+          "title": "Super Repository"
+        },
+        "license": [{
+          "license_ref": "https://creativecommons.org/licenses/by/4.0/",
+          "start_date": "2019-06-30"
+        }],
+        "title": "Full resolution images"
+      }],
+      "issued": "2019-06-30",
+      "keyword": [
+        "keyword 1", 
+        "keyword 2"
+      ],
+      "language": "en",
+      "metadata": [{
+        "description": "provides taxonomy for...",
+        "language": "polish",
+        "metadata_id": {
+          "metadata_id": "http://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
+          "metadata_id_type": "URL"
+        }
+      }],
+      "personal_data": "unknown",
+      "preservation_statement": "Must be preserved to enable...",
+      "security_and_privacy": [{
+        "description": "Server with data must be kept in a locked room",
+        "title": "Physical access control"
+      }, {
+        "description": "Server with data must be kept in a Lamina Airflow",
+        "title": "Chemical access control"
+      }],
+      "sensitive_data": "unknown",
+      "technical_resource": [{
+        "description": "Device needed to collect field data...",
+        "resource_id": {
+          "technical_resource_id": "123/45/43/AT",
+          "technical_resource_id_type": "custom"
+        }
+      }, {
+        "description": "Device needed to destroy field data...",
+        "resource_id": {
+          "technical_resource_id": "Destroya Machino",
+          "technical_resource_id_type": "custom"
+        }
+      }],
+      "title": "Fast car images",
+      "type": "image"
+    }],
+    "description": "This DMP is for our new project",
+    "ethical_issues_description": "There are ethical issues, because...",
+    "ethical_issues_exist": "yes",
+    "ethical_issues_report": "http://report.location",
+    "language": "en",
+    "modified": "2019-03-14 10:53",
+    "project": [{
+      "description": "Project develops novel...",
+      "end": "2020-03-31",
+      "funding": {
+        "funder_id": {
+          "funder_id": "501100002428",
+          "funder_id_type": "FUNDREF"
+        },
+        "funding_status": "granted",
+        "grant_id": {
+          "grant_id": "1234567",
+          "grant_id_type": "custom"
+        }
+      },
+      "start": "2019-04-01",
+      "title": "Our New Project"
+    }],
+    "title": "DMP for our new project"
+  }
+}
