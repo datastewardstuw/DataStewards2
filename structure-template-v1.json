@@ -9,83 +9,51 @@
       "name": "NULL"
     },
     "cost": {
-      "currency_code": [
-        "EUR",
-        "USD"
-      ],
+      "currency_code": "EUR",
       "description": "NULL",
       "title": "NULL",
       "value": "NULL"
     },
     "created": "NULL",
     "dm_staff": {
-      "contributor_type": [
-        null,
-        null
-      ],
+      "contributor_type": "NULL",
       "mbox": "NULL",
       "name": "NULL",
       "staff_id": {
         "staff_id": "NULL",
-        "staff_id_type": [
-          null,
-          null
-        ]
+        "staff_id_type": "NULL"
       }
     },
     "dmp_id": {
       "dmp_id": "NULL",
-      "dmp_id_type": [
-        null,
-        null
-      ]
+      "dmp_id_type": "NULL"
     },
     "dataset": {
       "data_quality_assurance": "NULL",
       "dataset_id": {
         "dataset_id": "NULL",
-        "dataset_id_type": [
-          null,
-          null
-        ]
+        "dataset_id_type": "NULL"
       },
       "description": "NULL",
       "distribution": {
         "access_url": "NULL",
         "available_till": "NULL",
         "byte_size": "NULL",
-        "data_access": [
-          null,
-          null
-        ],
+        "data_access": "closed",
         "description": "NULL",
         "download_url": "NULL",
-        "format": [
-          null,
-          null
-        ],
+        "format": "NULL",
         "host": {
           "availability": "NULL",
           "backup_frequency": "NULL",
           "backup_type": "NULL",
-          "certified_with": [
-            null,
-            null
-          ],
+          "certified_with": "NULL",
           "description": "NULL",
-          "geo_location": [
-            null,
-            null
-          ],
+          "geo_location": "NULL",
           "pid_system": [
-            null,
-            null
-          ],
-          "support_versioning": [
-            "no",
-            "yes",
-            "unknown"
-          ],
+            "NULL"
+            ],
+          "support_versioning": "NULL",
           "title": "NULL"
         },
         "license": {
@@ -96,71 +64,37 @@
       },
       "issued": "NULL",
       "keyword": "NULL",
-      "language": [
-        null,
-        null
-      ],
+      "language": "NULL",
       "metadata": {
         "description": "NULL",
         "language": "NULL",
         "metadata_id": {
           "metadata_id": "NULL",
-          "metadata_id_type": [
-            null,
-            null
-          ]
+          "metadata_id_type": "NULL"
         }
       },
-      "personal_data": [
-        "no",
-        "yes",
-        "unknown"
-      ],
+      "personal_data": "unknown",
       "preservation_statement": "NULL",
       "security_and_privacy": {
         "description": "NULL",
         "title": "NULL"
       },
-      "sensitive_data": [
-        "no",
-        "yes",
-        "unknown"
-      ],
+      "sensitive_data": "unknown",
       "technical_resource": {
         "description": "NULL",
         "resource_id": {
           "technical_resource_id": "NULL",
-          "technical_resource_id_type": [
-            null,
-            null
-          ]
+          "technical_resource_id_type": "NULL"
         }
       },
       "title": "NULL",
-      "type": [
-        null,
-        null
-      ]
+      "type": "NULL"
     },
     "description": "NULL",
     "ethical_issues_description": "NULL",
-    "ethical_issues_exists": [
-      "no",
-      "yes",
-      "unknown"
-    ],
-    "ethical_issues_report": [
-      "no",
-      "yes"
-    ],
-    "language": [
-      "de",
-      "en",
-      "fr",
-      "ru",
-      "tk",
-      "it"
-    ],
+    "ethical_issues_exist": "unknown",
+    "ethical_issues_report": "NULL",
+    "language": "en",
     "modified": "modified_date",
     "project": {
       "description": "NULL",
@@ -168,23 +102,12 @@
       "funding": {
         "funder_id": {
           "funder_id": "NULL",
-          "funder_id_type": [
-            null,
-            null
-          ]
+          "funder_id_type": "NULL"
         },
-        "funding_status": [
-          "planned",
-          "applied",
-          "granted",
-          "rejected"
-        ],
+        "funding_status": "NULL",
         "grant_id": {
           "grant_id": "NULL",
-          "grant_id_type": [
-            null,
-            null
-          ]
+          "grant_id_type": "NULL"
         }
       },
       "start": "NULL",
