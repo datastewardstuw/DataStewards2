@@ -8,14 +8,14 @@
       "mail": "NULL",
       "name": "NULL"
     },
-    "cost": {
+    "cost": [{
       "currency_code": "EUR",
       "description": "NULL",
       "title": "NULL",
       "value": "NULL"
-    },
+    }],
     "created": "NULL",
-    "dm_staff": {
+    "dm_staff": [{
       "contributor_type": "NULL",
       "mbox": "NULL",
       "name": "NULL",
@@ -23,19 +23,21 @@
         "staff_id": "NULL",
         "staff_id_type": "NULL"
       }
-    },
+    }],
     "dmp_id": {
       "dmp_id": "NULL",
       "dmp_id_type": "NULL"
     },
-    "dataset": {
-      "data_quality_assurance": "NULL",
-      "dataset_id": {
+    "dataset": [{
+      "data_quality_assurance": [
+        "NULL"
+      ],
+      "dataset_id": [{
         "dataset_id": "NULL",
         "dataset_id_type": "NULL"
-      },
+      }],
       "description": "NULL",
-      "distribution": {
+      "distribution": [{
         "access_url": "NULL",
         "available_till": "NULL",
         "byte_size": "NULL",
@@ -52,51 +54,53 @@
           "geo_location": "NULL",
           "pid_system": [
             "NULL"
-            ],
+          ],
           "support_versioning": "NULL",
           "title": "NULL"
         },
-        "license": {
+        "license": [{
           "license_ref": "NULL",
           "start_date": "NULL"
-        },
+        }],
         "title": "NULL"
-      },
+      }],
       "issued": "NULL",
-      "keyword": "NULL",
+      "keyword": [
+        "NULL"
+      ],
       "language": "NULL",
-      "metadata": {
+      "metadata": [{
         "description": "NULL",
         "language": "NULL",
         "metadata_id": {
           "metadata_id": "NULL",
           "metadata_id_type": "NULL"
         }
-      },
+      }],
       "personal_data": "unknown",
       "preservation_statement": "NULL",
-      "security_and_privacy": {
+      "security_and_privacy": [{
         "description": "NULL",
         "title": "NULL"
-      },
+      }],
       "sensitive_data": "unknown",
-      "technical_resource": {
+      "technical_resource": [{
         "description": "NULL",
         "resource_id": {
           "technical_resource_id": "NULL",
           "technical_resource_id_type": "NULL"
         }
-      },
+      }],
       "title": "NULL",
       "type": "NULL"
-    },
+    }],
     "description": "NULL",
     "ethical_issues_description": "NULL",
     "ethical_issues_exist": "unknown",
     "ethical_issues_report": "NULL",
-    "language": "en",
-    "modified": "modified_date",
-    "project": {
+    "language": "NULL",
+    "modified": "NULL",
+    "project": [{
       "description": "NULL",
       "end": "NULL",
       "funding": {
@@ -112,7 +116,7 @@
       },
       "start": "NULL",
       "title": "NULL"
-    },
+    }],
     "title": "NULL"
   }
 }
