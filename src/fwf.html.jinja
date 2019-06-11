@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FWF DMP Template</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ created }}</p>
+    <p>{{ dmp_id.dmp_id }}, {{ dmp_id.dmp_id_type }}</p>
+    <p>{{ description }}</p>
+    <p>{{ language }}</p>
+    <p>{{ modified }}</p>
+    
+    <table>
+        <tbody>
+            {# {% for chapter in template %}
+                <tr>
+                    <td></td>
+                </tr>
+                {% for question in chapter %}
+                    <tr>
+                    </tr>
+                {% endfor %}
+            {% endfor %} #}
+
+            <tr>
+                <td></td>
+                <td>Data Officer</td>
+                <td>
+                    {{ contact.contact_id.contact_id }}
+                    {{ contact.contact_id.contact_id_type }}
+                    {{ contact.mail }}
+                    {{ contact.name }}
+                </td>
+            </tr>
+            <tr class="chapter">
+                <td>I</td><td>Data Characteristics</td><td></td>
+            </tr>
+            <tr>
+                <td>I.1</td><td>Description of the data</td>
+                <td>
+                    {% for s in dm_staff %}
+                        {{ s.contributor_type }}
+                        {{ s.mbox }}
+                        {{ s.name }}
+                        {{ s.staff_id.staff_id }}
+                        {{ s.staff_id.staff_id_type }}
+                    {% endfor %}
+
+                    {% for d in dataset %}
+                        {{ d.description }}
+                        {{ d.keyword }} 
+                        {{ d.language }}
+                        {{ d.title }}
+                        {{ d.type }}
+                    {% endfor %}
+
+                    {% for p in project %}
+                        {{ p.description }}
+                        {{ p.end }}
+                        {{ p.funding.funder_id.funder_id }}
+                        {{ p.funding.funder_id.funder_id_type }}
+                        {{ p.funding.funding_status }}
+                        {{ p.funding.grant_id.grant_id }}
+                        {{ p.funding.grant_id.grant_id_type }}
+                        {{ p.start }}
+                        {{ p.title }}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr class="chapter">
+                <td>II</td><td>Documentation and Metadata</td><td></td>
+            </tr>
+            <tr>
+                <td>II.1</td><td>Metadata standards</td>
+                <td>
+                    {% for d in dataset %}
+                        {% for m in d.metadata %}
+                            {{ m.description }}
+                            {{ m.language }}
+                            {{ m.metadata_id.metadata_id }}
+                            {{ m.metadata_id.metadata_id_type }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>II.2</td><td>Documentation of data</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.issued }}
+                        {% for t in d.technical_resource %}
+                            {{ t.description }}
+                            {{ t.resource_id.technical_resource_id }}
+                            {{ t.resource_id.technical_resource_id_type }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>II.3</td><td>Data quality control</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.data_quality_assurance}}
+                    {% endfor %}
+                </td>
+            </tr>
+
+            <tr class="chapter">
+                <td>III</td><td>Data availability and storage</td><td></td>
+            </tr>
+            <tr>
+                <td>III.1</td><td>Data sharing strategy</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.dataset_id.dataset_id }}
+                        {{ d.dataset_id.dataset_id_type }}
+                        {% for di in d.distribution %}
+	                        {{ di.access_url }}
+	                        {{ di.available_till }}
+	                        {{ di.byte_size }}
+	                        {{ di.data_access }}
+	                        {{ di.description }}
+	                        {{ di.download_url }}
+	                        {{ di.format }}
+	                        {{ di.title }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>III.2</td><td>Data storage strategy</td>
+                <td>
+                    {% for c in cost %}
+                        {{ c.currency_code }}
+                        {{ c.description }}
+                        {{ c.title }}
+                        {{ c.value }}
+                    {% endfor %}
+
+                    {% for d in dataset %}
+                        {% for di in d.distribution %}
+	                        {{ di.host.availability }}
+	                        {{ di.host.backup_frequency }}
+	                        {{ di.host.backup_type }}
+	                        {{ di.host.certified_with }}
+	                        {{ di.host.description }}
+	                        {{ di.host.geo_location }}
+	                        {{ di.host.pid_system }}
+	                        {{ di.host.support_version }}
+	                        {{ di.host.title }}
+	                    {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+
+             <tr class="chapter">
+                <td>IV</td><td>Legal and ethical aspects</td><td></td>
+            </tr>
+            <tr>
+                <td>IV.1</td><td>Legal aspects</td>
+                <td>
+                    {% for d in dataset %}
+                        {% for di in d.distribution %}
+                            {{ di.license.license_ref }}
+                            {{ di.license.start_date }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>IV.2</td><td>Ethical aspects</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.personal_data }}
+                        {{ d.preservation_statement }}
+                        {{ d.security_and_privacy.description }}
+                        {{ d.security_and_privacy.title }}
+                        {{ d.sensitive_data }}                        
+                    {% endfor %}
+
+                    {{ ethical_issues_description.description }}
+                    {{ ethical_issues_existis }}
+                    {{ ethical_issues_report }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+

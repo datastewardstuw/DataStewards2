@@ -1,0 +1,31 @@
+- DMPs in maDMPs umwandeln (händisch)
+- maDMP Felder den Fragen in FWF und Horizon 2020 templates zuordnen
+- Basis: einzelnes Feld (od. kleine Gruppe von Feldern) -> ein Satz 
+
+
+frameworks/libraries
+- python
+- json parsing
+- natural language generation?
+- pdf creation
+- 
+
+
+
+cases:
+- number of entries for a key
+	- none
+	- exactly one
+	- more than one
+-> if none, leave out segment
+-> if one, just use respective sentence
+-> if more, add intro sentence at beginning of paragraph, then enumerate
+
+
+
+
+parsing & mapping:
+- walk through maDMP and template mapping dict in parallel
+
+mapping dict:
+has same format as maDMP, values are questions (or question ids) from template
