@@ -2,186 +2,315 @@
 <html lang="en">
 <head>
     <title>FWF DMP Template</title>
+    <style type="text/css">
+        body {
+            background-color: white;
+            color: black;
+        }
+        h1, h2, h3 {
+            font-size: 12pt;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            /* vertical-align: top; */
+            border: 1px solid black;
+            padding: 5px;
+        }
+        td {
+            /* vertical-align: top; */
+            border: 1px solid black;
+            padding: 5px;
+        }
+        td p {
+            margin: 0;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .chapter {
+            background-color: rgb(78, 129, 189);
+            color: white;
+            vertical-align: center;
+            height: 25px;
+        }
+        .ul {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>{{ title }}</h1>
+    <h2>ID ({{ dmp_id.dmp_id_type }}):</h2>
+    <p>{{ dmp_id.dmp_id }}</p>
+    <h2>Created:</h2>
     <p>{{ created }}</p>
-    <p>{{ dmp_id.dmp_id }}, {{ dmp_id.dmp_id_type }}</p>
-    <p>{{ description }}</p>
-    <p>{{ language }}</p>
+    <h2>Modified:</h2>
     <p>{{ modified }}</p>
-    
+    <h2>Language:</h2>
+    <p>{{ language }}</p>
+    <h2>Description:</h2>
+    <p>{{ description }}</p>
+
     <table>
         <tbody>
-            {# {% for chapter in template %}
-                <tr>
-                    <td></td>
-                </tr>
-                {% for question in chapter %}
-                    <tr>
-                    </tr>
-                {% endfor %}
-            {% endfor %} #}
-
             <tr>
-                <td></td>
-                <td>Data Officer</td>
+                <th style="border: 0"></th>
+                <th>Data Officer</th>
                 <td>
+                    {{ contact.name }}, <a href="mailto:{{ contact.mail }}">{{ contact.mail }}</a>
+                    <br/>
                     {{ contact.contact_id.contact_id }}
-                    {{ contact.contact_id.contact_id_type }}
-                    {{ contact.mail }}
-                    {{ contact.name }}
+                    ({{ contact.contact_id.contact_id_type }})
                 </td>
             </tr>
             <tr class="chapter">
-                <td>I</td><td>Data Characteristics</td><td></td>
+                <th>I</th><th colspan="2">Data Characteristics</th>
             </tr>
             <tr>
-                <td>I.1</td><td>Description of the data</td>
+                <th>I.1</th><th>Description of the data</th>
                 <td>
-                    {% for s in dm_staff %}
-                        {{ s.contributor_type }}
-                        {{ s.mbox }}
-                        {{ s.name }}
-                        {{ s.staff_id.staff_id }}
-                        {{ s.staff_id.staff_id_type }}
+                    {% if dm_staff %}
+                        <strong>Collaborators:</strong>
+                        {% for s in dm_staff %}
+                            <p>
+                            <span class="ul">
+                                {{ s.contributor_type|capitalize }}
+                            </span>
+                            <br/>
+                            {{ s.name }}, <a href="mailto:{{ contact.mail }}">{{ s.mbox }}</a>
+                            <br/>
+                            {{ s.staff_id.staff_id }} ({{ s.staff_id.staff_id_type }})
+                            </p>
+                            <br/>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if project|length == 1 %}
+                        <strong>Dataset:</strong>
+                    {% else %}{% if project|length >= 2 %}
+                        <strong>Datasets:</strong>
+                    {% endif %}{% endif %}
+                               
+                    {% for d in dataset %}
+                        <p class="ul">{{ d.title }}</p>
+                        <p>{{ d.description }}</p>
+                        <p>Type: {{ d.type }}</p>
+                        <p>Language: {{ d.language }}</p>
+                        <p>Keywords: {{ d.keyword|join(', ') }}</p>
+                        <br/>
                     {% endfor %}
 
-                    {% for d in dataset %}
-                        {{ d.description }}
-                        {{ d.keyword }} 
-                        {{ d.language }}
-                        {{ d.title }}
-                        {{ d.type }}
-                    {% endfor %}
+                    {% if project|length == 1 %}
+                        <strong>Project:</strong>
+                    {% else %}{% if project|length >= 2 %}
+                        <strong>Projects:</strong>
+                    {% endif %}{% endif %}
 
                     {% for p in project %}
-                        {{ p.description }}
-                        {{ p.end }}
-                        {{ p.funding.funder_id.funder_id }}
-                        {{ p.funding.funder_id.funder_id_type }}
-                        {{ p.funding.funding_status }}
-                        {{ p.funding.grant_id.grant_id }}
-                        {{ p.funding.grant_id.grant_id_type }}
-                        {{ p.start }}
-                        {{ p.title }}
+                        <p><span class="ul">{{ p.title }}:</span>
+                        {{ p.description }}</p>
+                        <p>Start: {{ p.start }}</p>
+                        <p>End: {{ p.end }}</p>
+                        <p>Funding ID: {{ p.funding.funder_id.funder_id }} 
+                            ({{ p.funding.funder_id.funder_id_type }}) </p>
+                        <p>Funding status: {{ p.funding.funding_status }} </p>
+                        <p>Grant ID: {{ p.funding.grant_id.grant_id }} 
+                            ({{ p.funding.grant_id.grant_id_type }})</p>
+                        <br/>
                     {% endfor %}
                 </td>
             </tr>
             <tr class="chapter">
-                <td>II</td><td>Documentation and Metadata</td><td></td>
+                <th>II</th><th colspan="2">Documentation and Metadata</th>
             </tr>
             <tr>
-                <td>II.1</td><td>Metadata standards</td>
+                <th>II.1</th><th>Metadata standards</td>
                 <td>
                     {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <p class="ul">Dataset: "{{ d.title }}"</p>
+                        {% endif %}
                         {% for m in d.metadata %}
-                            {{ m.description }}
-                            {{ m.language }}
-                            {{ m.metadata_id.metadata_id }}
-                            {{ m.metadata_id.metadata_id_type }}
+                            <p>{{ m.description }}</p>
+                            <p>Language: {{ m.language }}</p>
+                            <p>ID: {{ m.metadata_id.metadata_id }} 
+                                ({{ m.metadata_id.metadata_id_type }})</p>
                         {% endfor %}
+                        <br/>
                     {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>II.2</td><td>Documentation of data</td>
+                <th>II.2</th><th>Documentation of data</th>
                 <td>
                     {% for d in dataset %}
-                        {{ d.issued }}
+                        {% if dataset|length > 1 %}
+                            <p class="ul">Dataset: "{{ d.title }}"</p>
+                        {% endif %}
+
+                        <p>Issued: {{ d.issued }}</p>
+
+                        {% if project|length == 1 %}
+                            <p>Technical resource:</p>
+                        {% else %}{% if project|length >= 2 %}
+                            <p>Technical resources:</p>
+                        {% endif %}{% endif %}
+                        
+                        <ul>
                         {% for t in d.technical_resource %}
-                            {{ t.description }}
-                            {{ t.resource_id.technical_resource_id }}
-                            {{ t.resource_id.technical_resource_id_type }}
+                            <li>{{ t.resource_id.technical_resource_id }}
+                                ({{ t.resource_id.technical_resource_id_type }}): 
+                                {{ t.description }}</li>
                         {% endfor %}
+                        </ul>
+                        <br/>
                     {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>II.3</td><td>Data quality control</td>
+                <th>II.3</th><th>Data quality control</th>
                 <td>
                     {% for d in dataset %}
-                        {{ d.data_quality_assurance}}
+                        {% if d.data_quality_assurance %}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
+                        <ul>
+                        {% for q in d.data_quality_assurance %}
+                            <li>{{ q }}</li>
+                        {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <br/>
                     {% endfor %}
                 </td>
             </tr>
 
             <tr class="chapter">
-                <td>III</td><td>Data availability and storage</td><td></td>
+                <th>III</th><th colspan="2">Data availability and storage</th>
             </tr>
             <tr>
-                <td>III.1</td><td>Data sharing strategy</td>
+                <th>III.1</th><th>Data sharing strategy</th>
                 <td>
                     {% for d in dataset %}
-                        {{ d.dataset_id.dataset_id }}
-                        {{ d.dataset_id.dataset_id_type }}
-                        {% for di in d.distribution %}
-	                        {{ di.access_url }}
-	                        {{ di.available_till }}
-	                        {{ di.byte_size }}
-	                        {{ di.data_access }}
-	                        {{ di.description }}
-	                        {{ di.download_url }}
-	                        {{ di.format }}
-	                        {{ di.title }}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
+                        
+                        {% for did in d.dataset_id %}
+                            <p>ID-{{ loop.index }}: {{ did.dataset_id }}
+                                ({{ did.dataset_id_type }})</p>
                         {% endfor %}
+
+                        {% for di in d.distribution %}
+                            <p><span class="ul">{{ di.title }}:</span>
+                                {{ di.description }}
+                            </p>
+                            <p>Available till: {{ di.available_till }}</p>
+	                        <p>Size: {{ di.byte_size }}</p>
+	                        <p>Data access: {{ di.data_access }}</p>
+	                        <p>URL: {{ di.download_url }}</p>
+	                        <p>Format: {{ di.format }}</p>
+                        {% endfor %}
+                        <br/>
                     {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>III.2</td><td>Data storage strategy</td>
+                <th>III.2</th><th>Data storage strategy</th>
                 <td>
-                    {% for c in cost %}
-                        {{ c.currency_code }}
-                        {{ c.description }}
-                        {{ c.title }}
-                        {{ c.value }}
-                    {% endfor %}
-
+                    <p><strong>Cost(s)</strong></p>
+                    <p>
+                        <ul>
+                        {% for c in cost %}
+                            <li>{{ c.title }}: 
+                                {{ c.description }} <br/>
+                                {{ c.currency_code }}
+                                {{ c.value }}</li>
+                        {% endfor %}
+                        </ul>
+                    </p>
+                    <br/>
                     {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
                         {% for di in d.distribution %}
-	                        {{ di.host.availability }}
-	                        {{ di.host.backup_frequency }}
-	                        {{ di.host.backup_type }}
-	                        {{ di.host.certified_with }}
-	                        {{ di.host.description }}
-	                        {{ di.host.geo_location }}
-	                        {{ di.host.pid_system }}
-	                        {{ di.host.support_version }}
-	                        {{ di.host.title }}
-	                    {% endfor %}
+                            <p class="ul">{{ di.title }}</p>
+                            <ul>
+                                <li>{{ di.host.title }}</li>
+                                <li>{{ di.host.description }}</li>
+                                <li>{{ di.host.backup_frequency }}</li>
+                                <li>{{ di.host.backup_type }}</li>
+                                <li>{{ di.host.certified_with }}</li>
+                                <li>{{ di.host.geo_location }}</li>
+                                <li>{{ di.host.pid_system }}</li>
+                                <li>{{ di.host.support_versioning }}</li>
+                            </ul>
+                            <br/>
+                        {% endfor %}
                     {% endfor %}
                 </td>
             </tr>
 
              <tr class="chapter">
-                <td>IV</td><td>Legal and ethical aspects</td><td></td>
+                <th>IV</th><th colspan="2">Legal and ethical aspects</th>
             </tr>
             <tr>
-                <td>IV.1</td><td>Legal aspects</td>
+                <th>IV.1</th><th>Legal aspects</th>
                 <td>
                     {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
                         {% for di in d.distribution %}
-                            {{ di.license.license_ref }}
-                            {{ di.license.start_date }}
+                            {% if d.distribution|length > 1 %}
+                                <span class="ul">Distribution: "{{ d.title }}"</span>
+                            {% endif %}
+                            
+                            {% if di.license|length == 1 %}
+                                <p>License:</p>
+                            {% else %}{% if di.license|length >= 2 %}
+                                <p>Licenses:</p>
+                            {% endif %}{% endif %}
+                            <ul>
+                            {% for l in di.license %}
+                                <li>
+                                    Valid from: {{ l.start_date }}<br/>
+                                    {{ l.license_ref }}
+                                </li>
+                            {% endfor %}
+                            </ul>
                         {% endfor %}
+                        <br/>
                     {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>IV.2</td><td>Ethical aspects</td>
+                <th>IV.2</th><th>Ethical aspects</th>
                 <td>
                     {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
                         {{ d.personal_data }}
                         {{ d.preservation_statement }}
                         {{ d.security_and_privacy.description }}
                         {{ d.security_and_privacy.title }}
-                        {{ d.sensitive_data }}                        
+                        {{ d.sensitive_data }}   
+                        <br/>                     
                     {% endfor %}
-
-                    {{ ethical_issues_description.description }}
-                    {{ ethical_issues_existis }}
-                    {{ ethical_issues_report }}
+                    
+                    <p>Ethical issues: </p>
+                    <ul>
+                        <li>{{ ethical_issues_description }}</li>
+                        <li>{{ ethical_issues_exist }}</li>
+                        <li>{{ ethical_issues_report }}</li>
+                    </ul>
                 </td>
             </tr>
         </tbody>

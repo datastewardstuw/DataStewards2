@@ -94,7 +94,7 @@ def create_document(mapping, dmp_format):
 mapping = parse_mapping('./mapping_horizon2020.json')
 # print(parse_sentences('./sentences.csv'))
 dmp = parse_madmp('../structure-example.json')
-print(dmp)
+# print(dmp)
 # print(map_to_questions(dmp, mapping))
 
 templateLoader = jinja2.FileSystemLoader(searchpath="./")
@@ -103,4 +103,5 @@ TEMPLATE_FILE = "fwf.html.jinja"
 template = templateEnv.get_template(TEMPLATE_FILE)
 outputText = template.render(dmp['dmp'])
 
-print(outputText)
+with open('./result.html', 'w') as f:
+    f.write(outputText)

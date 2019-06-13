@@ -29,3 +29,7 @@ parsing & mapping:
 
 mapping dict:
 has same format as maDMP, values are questions (or question ids) from template
+
+- css file
+
+check cardinilities in schema and add conditions to jinja template if value can be null
