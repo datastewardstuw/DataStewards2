@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Horizon 2020 DMP Template</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ created }}</p>
+    <p>{{ description }}</p>
+    <p>{{ language }}</p>
+    <p>{{ modified }}</p>
+    <p>{{ contact.contact_id.contact_id }}</p>
+    <p>{{ contact.contact_id.contact_id_type }}</p>
+    <p>{{ contact.mail }}</p>
+    <p>{{ contact.name }}</p>
+    
+    <table>
+        <tbody>
+            {# {% for chapter in template %}
+                <tr>
+                    <td></td>
+                </tr>
+                {% for question in chapter %}
+                    <tr>
+                    </tr>
+                {% endfor %}
+            {% endfor %} #}
+
+            <tr>
+                <td></td>
+                <td>DMP Component</td>
+                <td>
+                    Issues to be addressed
+                </td>
+            </tr>
+            <tr class="chapter">
+                <td>I</td><td>1. Data Summary</td><td></td>
+            </tr>
+            <tr>
+                <td>I.1</td><td>Data Summary</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.description }}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr class="chapter">
+                <td>II</td><td>2. FAIR Data</td><td></td>
+            </tr>
+            <tr>
+                <td>II.1</td><td>2.1. Making data findable, including provisions for metadata</td>
+                <td>
+
+                    {{ dmp_id.dmp_id }}
+                    {{ dmp_id.dmp_id_type }}
+
+                    {% for d in dataset %}
+                        {{ d.issued }} 
+                        {{ d.keyword }} 
+                        {{ d.language }}
+                        {{ d.title }}
+                        {{ d.type }}
+                    {% endfor %}
+
+                    {% for d in dataset %}
+                        {{ d.dataset_id.dataset_id }}
+                        {{ d.dataset_id.dataset_id_type }}
+                        {% for m in d.metadata %}
+                            {{ m.description }}
+                            {{ m.language }}
+                            {{ m.metadata_id.metadata_id }}
+                            {{ m.metadata_id.metadata_id_type }}
+                        {% endfor %}
+                    {% endfor %}
+
+                    {% for d in dataset %}
+                        {% for t in d.technical_resource %}
+                            {{ t.description }}
+                            {{ t.resource_id.technical_resource_id }}
+                            {{ t.resource_id.technical_resource_id_type }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>II.2</td><td>2.2 Making data openly accessible</td>
+                <td>
+                    {% for d in dataset %}
+                        {% for di in d.distribution %}
+	                        {{ di.access_url }}
+	                        {{ di.available_till }}
+	                        {{ di.byte_size }}
+	                        {{ di.data_access }}
+	                        {{ di.description }}
+	                        {{ di.download_url }}
+	                        {{ di.format }}
+	                        {{ di.title }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>II.3</td><td>2.3. Making data interoperable</td>
+                <td>
+                    {% for d in dataset %}
+                        {% for di in d.distribution %}
+	                        {{ di.host.availability }}
+	                        {{ di.host.backup_frequency }}
+	                        {{ di.host.backup_type }}
+	                        {{ di.host.certified_with }}
+	                        {{ di.host.description }}
+	                        {{ di.host.geo_location }}
+	                        {{ di.host.pid_system }}
+	                        {{ di.host.support_version }}
+	                        {{ di.host.title }}
+	                    {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>II.2</td><td>2.4. Increase data re-use (through clarifying licences)</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.data_quality_assurance}}
+                    {% endfor %}
+
+                    {% for d in dataset %}
+                        {% for di in d.distribution %}
+                            {{ di.license.license_ref }}
+                            {{ di.license.start_date }}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+            </tr>
+
+            <tr class="chapter">
+                <td>III</td><td>3. Allocation of resources</td><td></td>
+            </tr>
+            <tr>
+                <td>III.1</td><td>Allocation of resources</td>
+                <td>
+                    {% for c in cost %}
+                        {{ c.currency_code }}
+                        {{ c.description }}
+                        {{ c.title }}
+                        {{ c.value }}
+                    {% endfor %}
+
+                    {% for s in dm_staff %}
+                        {{ s.contributor_type }}
+                        {{ s.mbox }}
+                        {{ s.name }}
+                        {{ s.staff_id.staff_id }}
+                        {{ s.staff_id.staff_id_type }}
+                    {% endfor %}
+
+                    {% for p in project %}
+                        {{ p.description }}
+                        {{ p.end }}
+                        {{ p.funding.funder_id.funder_id }}
+                        {{ p.funding.funder_id.funder_id_type }}
+                        {{ p.funding.funding_status }}
+                        {{ p.funding.grant_id.grant_id }}
+                        {{ p.funding.grant_id.grant_id_type }}
+                        {{ p.start }}
+                        {{ p.title }}
+                    {% endfor %}
+                </td>
+            </tr>
+
+             <tr class="chapter">
+                <td>IV</td><td>4. Data security</td><td></td>
+            </tr>
+            </tr>
+            <tr>
+                <td>IV.2</td><td>Data security</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.security_and_privacy.description }}
+                        {{ d.security_and_privacy.title }}
+                        {{ d.sensitive_data }}                        
+                    {% endfor %}
+                </td>
+            </tr>
+
+            <tr class="chapter">
+                <td>I</td><td>5. Ethical aspects</td><td></td>
+            </tr>
+            <tr>
+                <td>I.1</td><td>Ethical aspects</td>
+                <td>
+                    {% for d in dataset %}
+                        {{ d.personal_data }}
+                        {{ d.preservation_statement }}                   
+                    {% endfor %}
+
+                    {{ ethical_issues_description.description }}
+                    {{ ethical_issues_existis }}
+                    {{ ethical_issues_report }}
+                </td>
+            </tr>
+
+            <tr class="chapter">
+                <td>I</td><td>6. Other</td><td></td>
+            </tr>
+            <tr>
+                <td>I.1</td><td>Other</td>
+                <td>
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>
+
