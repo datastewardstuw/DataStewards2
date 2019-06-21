@@ -1,0 +1,23 @@
+{
+  "dmp": {
+    "contact": {
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0002-4537-6648",
+        "contact_id_type": "HTTP-ORCID"
+      },
+      "mail": "moritz.leidinger@student.tuwien.ac.at",
+      "name": "Moritz Leidinger"
+    },
+    "created": "22-04-2019",
+    "dataset": [{
+      "personal_data": "unknown",
+      "sensitive_data": "unknown",
+      "title": "UCI Arrhythmia Dataset",
+      "type": "dataset"
+    }],
+    "ethical_issues_exist": "unknown",
+    "language": "en",
+    "modified": "22-04-2019",
+    "title": "Data Stewardship DMP Exercise"
+  }
+}

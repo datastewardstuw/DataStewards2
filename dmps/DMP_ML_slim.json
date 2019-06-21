@@ -1,0 +1,58 @@
+{
+  "dmp": {
+    "contact": {
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0002-4537-6648",
+        "contact_id_type": "HTTP-ORCID"
+      },
+      "mail": "moritz.leidinger@student.tuwien.ac.at",
+      "name": "Moritz Leidinger"
+    },
+    "created": "22-04-2019",
+    "dmp_id": {
+      "dmp_id": "https://doi.org/10.5281/zenodo.2648751",
+      "dmp_id_type": "HTTP-ORCID"
+    },
+    "dataset": [{
+      "data_quality_assurance": [
+        "We use a readme file to describe the data quality and provide the source code of the experiment."
+      ],
+      "dataset_id": [{
+        "dataset_id": "https://doi.org/10.5281/zenodo.202648713",
+        "dataset_id_type": "HTTP-ORCID"
+      }],
+      "description": "This experiment aims to apply two machine learning models to solve a classification task for two different datasets. Each dataset is evaluated with each of the machine learning models, using different parameter settings and preprocessing strategies to compare the respective results and analyze across datasets and/or machine learning models.",
+      "distribution": [{
+        "access_url": "https://archive.ics.uci.edu/ml/datasets/Arrhythmia",
+        "byte_size": "<10MiB",
+        "data_access": "open",
+        "description": "A publicly available dataset about Arrhythmia.",
+        "download_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/arrhythmia/arrhythmia.data",
+        "format": "text/csv",
+        "host": {
+          "geo_location": "US",
+          "support_versioning": "unknown",
+          "title": "UCI Repository"
+        },
+        "license": [{
+          "license_ref": "https://opensource.org/licenses/MIT",
+          "start_date": "2019-04-22"
+        }],
+        "title": "UCI Repository"
+      }],
+      "keyword": [
+        "Breast Cancer", "Arrhythmia"
+      ],
+      "language": "en",
+      "personal_data": "unknown",
+      "preservation_statement": "Must be preserved to keep research & development between stakeholders intact.",
+      "sensitive_data": "unknown",
+      "title": "UCI Arrhythmia Dataset",
+      "type": "dataset"
+    }],
+    "ethical_issues_exist": "unknown",
+    "language": "en",
+    "modified": "22-04-2019",
+    "title": "Data Stewardship DMP Exercise"
+  }
+}

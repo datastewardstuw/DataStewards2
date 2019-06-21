@@ -1,0 +1,123 @@
+{
+  "dmp": {
+    "contact": {
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0002-4537-6648",
+        "contact_id_type": "HTTP-ORCID"
+      },
+      "mail": "NULL@student.tuwien.ac.at",
+      "name": "Moritz Leidinger"
+    },
+    "cost": [{
+      "currency_code": "EUR",
+      "description": "Resources required to deliver the plan.",
+      "title": "DMP costs",
+      "value": "0"
+    }],
+    "created": "22-04-2019",
+    "dm_staff": [{
+      "contributor_type": "ContactPerson",
+      "mbox": "null@student.tuwien.ac.at",
+      "name": "Moritz Leidinger",
+      "staff_id": {
+        "staff_id": "",
+        "staff_id_type": ""
+      }
+    }],
+    "dmp_id": {
+      "dmp_id": "https://doi.org/10.5281/zenodo.2648751",
+      "dmp_id_type": "HTTP-ORCID"
+    },
+    "dataset": [{
+      "data_quality_assurance": [
+        "We use a readme file to describe the data quality and provide the source code of the experiment."
+      ],
+      "dataset_id": [{
+        "dataset_id": "https://doi.org/10.5281/zenodo.202648713",
+        "dataset_id_type": "HTTP-ORCID"
+      }],
+      "description": "This experiment aims to apply two machine learning models to solve a classification task for two different datasets. Each dataset is evaluated with each of the machine learning models, using different parameter settings and preprocessing strategies to compare the respective results and analyze across datasets and/or machine learning models.",
+      "distribution": [{
+        "access_url": "https://archive.ics.uci.edu/ml/datasets/Arrhythmia",
+        "access_url2": "https://www.kaggle.com/c/184702-tu-ml-ws-18-breast-cancer/data",
+        "available_till": "unknown",
+        "byte_size": "<10MiB",
+        "data_access": "open",
+        "description": "Two public available data repositories.",
+        "download_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/arrhythmia/arrhythmia.data",
+        "format": "text/csv",
+        "host": {
+          "availability": "unknown",
+          "backup_frequency": "unknown",
+          "backup_type": "unknown",
+          "certified_with": "unknown",
+          "description": "",
+          "geo_location": "US",
+          "pid_system": [
+            "doi"
+          ],
+          "support_versioning": "yes",
+          "title": "Kaggle"
+        },
+        "license": [{
+          "license_ref": "MIT License",
+          "start_date": "2019-04-22"
+        }],
+        "title": "Data Stewardship DMP Exercise"
+      }],
+      "issued": "NULL",
+      "keyword": [
+        "Breast Cancer", "Arrhythmia"
+      ],
+      "language": "en",
+      "metadata": [{
+        "description": "NULL",
+        "language": "en",
+        "metadata_id": {
+          "metadata_id": "https://github.com/buboh/data-stewardship-ex1",
+          "metadata_id_type": "URL"
+        }
+      }],
+      "personal_data": "unknown",
+      "preservation_statement": "Must be preserved to keep research & development between stakeholders intact.",
+      "security_and_privacy": [{
+        "description": "not specified",
+        "title": "not specified"
+      }],
+      "sensitive_data": "unknown",
+      "technical_resource": [{
+        "description": "unknown",
+        "resource_id": {
+          "technical_resource_id": "0",
+          "technical_resource_id_type": "custom"
+        }
+      }],
+      "title": "NULL",
+      "type": "dataset"
+    }],
+    "description": "NULL",
+    "ethical_issues_description": "NULL",
+    "ethical_issues_exist": "unknown",
+    "ethical_issues_report": "NULL",
+    "language": "NULL",
+    "modified": "NULL",
+    "project": [{
+      "description": "NULL",
+      "end": "NULL",
+      "funding": {
+        "funder_id": {
+          "funder_id": "NULL",
+          "funder_id_type": "NULL"
+        },
+        "funding_status": "NULL",
+        "grant_id": {
+          "grant_id": "NULL",
+          "grant_id_type": "NULL"
+        }
+      },
+      "start": "NULL",
+      "title": "NULL"
+    }],
+    "title": "NULL"
+  }
+}
