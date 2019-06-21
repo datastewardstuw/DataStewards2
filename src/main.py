@@ -5,15 +5,6 @@ import jinja2
 import pdfkit
 
 
-def parse_madmp(path):
-    """
-    :param path: path to madmp file
-    :return: dictionary containing maDMP
-    """
-
-    return js.load(open(path, 'r'))
-
-
 def iterate_dicts(madmp, tplt, result):
     for key, val in madmp.items():
         t = type(val)
@@ -54,7 +45,7 @@ def main():
         TEMPLATE_FILE = "fwf.html.jinja"
 
     # load dmp 
-    dmp = parse_madmp(DMP_FILE)
+    dmp = js.load(open(DMP_FILE, 'r'))
 
     # jinja
     template_loader = jinja2.FileSystemLoader(searchpath="./")
@@ -69,7 +60,7 @@ def main():
     }
 
     pdfkit.from_string(dmp_html, f"{DMP_FILE}_out.pdf", options=options)
-    
+
 
 if __name__ == '__main__':
     main()
