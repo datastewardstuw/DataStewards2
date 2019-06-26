@@ -38,11 +38,21 @@ def main():
     args = parser.parse_args()
 
     DMP_FILE = args.dmp
-
-    if args.temp is 'HORIZON':
+    
+    if args.temp == 'HORIZON':
         TEMPLATE_FILE = "h2020.html.jinja"
+        # pdfkit
+        options = {
+            'page-size': 'A4',
+            'orientation': 'portrait'
+        }
     else: 
         TEMPLATE_FILE = "fwf.html.jinja"
+        # pdfkit
+        options = {
+            'page-size': 'A4',
+            'orientation': 'landscape'
+        }
 
     # load dmp 
     dmp = js.load(open(DMP_FILE, 'r'))
@@ -52,12 +62,6 @@ def main():
     template_env = jinja2.Environment(loader=template_loader)
     template = template_env.get_template(TEMPLATE_FILE)
     dmp_html = template.render(dmp['dmp'])
-
-    # pdfkit
-    options = {
-        'page-size': 'A4',
-        'orientation': 'Landscape'
-    }
 
     pdfkit.from_string(dmp_html, f"{DMP_FILE}_out.pdf", options=options)
 

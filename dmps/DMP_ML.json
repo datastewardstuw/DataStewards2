@@ -39,7 +39,6 @@
       "description": "This experiment aims to apply two machine learning models to solve a classification task for two different datasets. Each dataset is evaluated with each of the machine learning models, using different parameter settings and preprocessing strategies to compare the respective results and analyze across datasets and/or machine learning models.",
       "distribution": [{
         "access_url": "https://archive.ics.uci.edu/ml/datasets/Arrhythmia",
-        "access_url2": "https://www.kaggle.com/c/184702-tu-ml-ws-18-breast-cancer/data",
         "available_till": "unknown",
         "byte_size": "<10MiB",
         "data_access": "open",
