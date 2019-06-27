@@ -38,21 +38,24 @@ def main():
     args = parser.parse_args()
 
     DMP_FILE = args.dmp
+    DMP_TEMP = args.temp
     
-    if args.temp == 'HORIZON':
+    if DMP_TEMP == 'HORIZON':
         TEMPLATE_FILE = "h2020.html.jinja"
         # pdfkit
         options = {
             'page-size': 'A4',
             'orientation': 'portrait'
         }
-    else: 
+    elif DMP_TEMP == 'FWF': 
         TEMPLATE_FILE = "fwf.html.jinja"
         # pdfkit
         options = {
             'page-size': 'A4',
             'orientation': 'landscape'
         }
+    else:
+        print('Template not found! Choose either HORIZON or FWF.')
 
     # load dmp 
     dmp = js.load(open(DMP_FILE, 'r'))
@@ -63,7 +66,7 @@ def main():
     template = template_env.get_template(TEMPLATE_FILE)
     dmp_html = template.render(dmp['dmp'])
 
-    pdfkit.from_string(dmp_html, f"{DMP_FILE}_out.pdf", options=options)
+    pdfkit.from_string(dmp_html, f"{DMP_FILE}_{DMP_TEMP}_out.pdf", options=options)
 
 
 if __name__ == '__main__':
