@@ -6,7 +6,7 @@ Our solution uses [Jinja](http://jinja.pocoo.org/docs/2.10/) templates to conver
 The text used to make the maDMP more "human-like" is specified directly in the template, which makes tweaking and changing it quite straight-forward. The mapping of maDMP fields to the template structure can also be changed right inside of the Jinja template. This approach makes it easy for non-coders to adjust the template to their needs with very basic HTML and Jinja knowledge needed. 
 
 ## How to run
-0. (Use Pyhton 3.7)
+0. (Use Python 3.7)
 1. Clone [repository](https://github.com/datastewardstuw/DataStewards2)
 2. Run `pip install -r requirements.txt` to install required packages
 3. `cd` to `src` directory
