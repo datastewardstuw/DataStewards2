@@ -23,6 +23,6 @@ The generated human readable DMPS are located in the `dmps` directory as well, a
 
 An example DMP generated with the FWF template is shown below:
 ![](https://i.imgur.com/1LKMvkE.png)
-![](./img/fwf.png)
+![fwf-example.png](./img/fwf_example.png)
 
 ## Comparison
