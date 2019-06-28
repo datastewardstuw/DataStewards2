@@ -22,7 +22,6 @@ The original DMPs can be found in the repository as well inside the `original` d
 The generated human readable DMPS are located in the `dmps` directory as well, and are named after the JSON files they originate from, adding either `FWF` or `HORIZON` depending on which template was used, and `out` to be able to discern them from the input files (not only based on the file extension).
 
 An example DMP generated with the FWF template is shown below:
-![](https://i.imgur.com/1LKMvkE.png)
 ![fwf-example.png](./img/fwf_example.png)
 
 ## Comparison
