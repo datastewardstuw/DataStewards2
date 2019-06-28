@@ -48,7 +48,7 @@ def main():
             'orientation': 'portrait'
         }
     elif DMP_TEMP == 'FWF': 
-        TEMPLATE_FILE = "fwf.html.jinja"
+        TEMPLATE_FILE = "fwf-text.html.jinja"
         # pdfkit
         options = {
             'page-size': 'A4',
@@ -66,8 +66,7 @@ def main():
     template = template_env.get_template(TEMPLATE_FILE)
     dmp_html = template.render(dmp['dmp'])
 
-    pdfkit.from_string(dmp_html, f"{DMP_FILE}_{DMP_TEMP}_out.pdf", options=options)
-
+    pdfkit.from_string(dmp_html, f"{DMP_FILE[0:-5]}_{DMP_TEMP}_out.pdf", options=options)
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,130 @@
+{
+  "dmp": {
+    "contact": {
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0002-4537-6648",
+        "contact_id_type": "HTTP-ORCID"
+      },
+      "mail": "moritz.leidinger@student.tuwien.ac.at",
+      "name": "Moritz Leidinger"
+    },
+    "cost": [{
+      "currency_code": "EUR",
+      "description": "Total costs needed to complete the project.",
+      "title": "Project costs",
+      "value": "110"
+    }],
+    "created": "22-04-2019",
+    "dm_staff": [{
+      "contributor_type": "Researcher",
+      "mbox": "bernhard.kurz@student.tuwien.ac.at",
+      "name": "Bernhard Kurz",
+      "staff_id": {
+        "staff_id": "1",
+        "staff_id_type": "custom"
+      }
+    }, {
+      "contributor_type": "Librarian",
+      "mbox": "paul.lang@student.tuwien.ac.at",
+      "name": "Paul Lang",
+      "staff_id": {
+        "staff_id": "2",
+        "staff_id_type": "custom"
+      }
+    }],
+    "dmp_id": {
+      "dmp_id": "https://doi.org/10.5281/zenodo.2648751",
+      "dmp_id_type": "HTTP-ORCID"
+    },
+    "dataset": [{
+      "data_quality_assurance": [
+        "No assurance"
+      ],
+      "dataset_id": [{
+        "dataset_id": "https://doi.org/10.5281/zenodo.202648713",
+        "dataset_id_type": "HTTP-ORCID"
+      }],
+      "description": "First and formost, source code will be created in this experiment. This source code will be written in the programming language Python and will be partly contained in so-called Jupyter notebooks (special JSON files) and partly in python files (standard text files with the .py extension). Additionally, some documentation will be produced and stored in both a Microsoft Word file and a markdown file. ",
+      "distribution": [{
+        "access_url": "https://github.com/buboh/data-stewardship-ex1",
+        "available_till": "unknown",
+        "byte_size": "<10MiB",
+        "data_access": "open",
+        "description": "GitHub repository containing the data.",
+        "download_url": "https://github.com/buboh/data-stewardship-ex1",
+        "format": "text/csv",
+        "host": {
+          "availability": "unknown",
+          "backup_frequency": "unknown",
+          "backup_type": "unknown",
+          "certified_with": "unknown",
+          "description": "The data will be stored in a GitHub repository for Version Control.",
+          "geo_location": "US",
+          "pid_system": [
+            "doi"
+          ],
+          "support_versioning": "yes",
+          "title": "GitHub"
+        },
+        "license": [{
+          "license_ref": "MIT License",
+          "start_date": "2019-04-22"
+        }],
+        "title": "Data Stewardship DMP Exercise"
+      }],
+      "issued": "28.06.2019",
+      "keyword": [
+        "Breast Cancer", "Arrhythmia"
+      ],
+      "language": "en",
+      "metadata": [{
+        "description": "Just some metadata",
+        "language": "en",
+        "metadata_id": {
+          "metadata_id": "2",
+          "metadata_id_type": "(custom)"
+        }
+      }],
+      "personal_data": "no",
+      "preservation_statement": "Must be preserved to keep research & development between stakeholders intact.",
+      "security_and_privacy": [{
+        "description": "The local machine is secured by a password and the harddrive is locked inside an apartment, but the GitHub repository will be publically available for viewing and forking. Pushing changes can only be done by collaborators, whose accounts are secured by passwords as well.",
+        "title": "Access control"
+      }],
+      "sensitive_data": "no",
+      "technical_resource": [{
+        "description": "A fridge to keep the cold brew coming.",
+        "resource_id": {
+          "technical_resource_id": "0",
+          "technical_resource_id_type": "custom"
+        }
+      }],
+      "title": "ML data for project",
+      "type": "dataset"
+    }],
+    "description": "First and formmost, source code will be created in this experiment. This source code will be written in the programming language Python and will be partly contained in so-called Jupyter notebooks (special JSON files) and partly in python files (standard text files with the .py extension). Additionally, some documentation will be produced and stored in both a Microsoft Word file and a markdown file. The outputs of the source code will be stored partly in .csv files consisting of two columns (an ID & the result of classification) and partly directly in said Jupyter notebooks). Additionally, images will be produced showing a visual representation of the decision tree used for classifcation.",
+    "ethical_issues_description": "No ethical issues have been identified, all pre-existing data is fully anonymized and so are the result files of the classification procedure. The only identifying data is of the author of the experiment himself.",
+    "ethical_issues_exist": "no",
+    "ethical_issues_report": "https://very.ethical.reports.com",
+    "language": "en",
+    "modified": "28.06.2019",
+    "project": [{
+      "description": "This experiment aims to apply two machine learning models to solve a classification task for two different datasets. Each dataset is evaluated with each of the machine learning models, using different parameter settings and preprocessing strategies to compare the respective results and analyze across datasets and/or machine learning models.",
+      "end": "31.08.2019",
+      "funding": {
+        "funder_id": {
+          "funder_id": "1",
+          "funder_id_type": "custom"
+        },
+        "funding_status": "granted",
+        "grant_id": {
+          "grant_id": "1-1",
+          "grant_id_type": "custom"
+        }
+      },
+      "start": "28.06.2019",
+      "title": "Projyproj Project"
+    }],
+    "title": "DS Exercise DMP"
+  }
+}

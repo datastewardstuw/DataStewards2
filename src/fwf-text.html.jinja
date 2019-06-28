@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FWF DMP Template</title>
+    <style type="text/css">
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+        }
+        h1 {
+            font-size: 14pt;
+        }
+        h2, h3 {
+            font-size: 12pt;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            /* vertical-align: top; */
+            border: 1px solid black;
+            padding: 5px;
+        }
+        td {
+            /* vertical-align: top; */
+            border: 1px solid black;
+            padding: 5px;
+        }
+        td p {
+            margin: 0;
+        }
+        .col1 {
+            width: 1.18cm;
+        }
+        .col2 {
+            width: 6.17cm;
+        }
+        .col3 {
+            width: 18.85cm;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .chapter {
+            background-color: #4F81BD;
+            color: white;
+            vertical-align: center;
+            height: 25px;
+        }
+        .ul {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    
+    <table>
+        <thead>
+            {% if dmp_id %}<th><span>ID ({{ dmp_id.dmp_id_type }})</span></th>{% endif %}
+            <th><span>Created</span></th>
+            <th><span>Modified</span></th>
+            <th><span>Language</span></th>
+            {% if description %}<th><span>Description</span></th>{% endif %}
+        </thead>
+        <tbody>
+            {% if dmp_id %}<td><span>{{ dmp_id.dmp_id }}</span></td>{% endif %}
+            <td><span>{{ created }}</span></td>
+            <td><span>{{ modified }}</span></td>
+            <td><span>{{ language }}</span></td>
+            {% if description %}<td><span>{{ description }}</span></td>{% endif %}
+        </tbody>
+    </table>
+    <br/>
+    <table>
+        <tbody>
+            <tr>
+                <th class="col1" style="border: 0"></th>
+                <th class="col2">Data Officer</th>
+                <td class="col3">
+                    Name: {{ contact.name }} <br/>
+                    Email: <a href="mailto:{{ contact.mail }}">{{ contact.mail }}</a><br/>
+                    ID: {{ contact.contact_id.contact_id }}
+                    ({{ contact.contact_id.contact_id_type }})
+                </td>
+            </tr>
+            <tr class="chapter">
+                <th>I</th><th colspan="2">Data Characteristics</th>
+            </tr>
+            <tr>
+                <th>I.1</th><th>Description of the data</th>
+                <td>
+                    {% if dm_staff %}
+                        The data in this project will be created in collaboration with:
+                        {% for s in dm_staff %}
+                            <p>
+                            {{ s.name }} - {{ s.contributor_type|capitalize }}
+                            {% if s.mbox %}
+                                - <a href="mailto:{{ s.mbox }}">{{ s.mbox }}</a>
+                            {% endif %}
+                            {% if s.staff_id %}
+                                - ID: {{ s.staff_id.staff_id }} ({{ s.staff_id.staff_id_type }})
+                            {% endif %}
+                            </p>
+                        {% endfor %}
+                        <br/>
+                    {% endif %}
+
+                    <p>
+                    {% if project|length == 1 %}
+                        <span>One dataset will be created.</span>
+                    {% else %}{% if project|length >= 2 %}
+                        <strong>Several datasets will be created.</strong>
+                    {% endif %}{% endif %}
+                               
+                    {% for d in dataset %}
+                        This dataset is titled "{{ d.title }}"
+                        {% if d.description %} 
+                             and described as follows: {{ d.description }}
+                        {% endif %}
+                        <p>
+                        The datasets resource type genre is "{{ d.type }}"
+                        {% if d.language %} 
+                            and it's language is specified as "{{ d.language }}"
+                        {% endif %}.
+                        {% if d.issued %}
+                            It was issued on {{ d.issued }}.
+                        {% endif %}
+                        </p>
+                        {% if d.keyword %} 
+                            <p>Keywords for the dataset are: {{ d.keyword|join(', ') }}</p>
+                        {% endif %}
+                        <br/>
+                    {% endfor %}
+                    </p>
+
+                    <p>
+                    {% if project|length == 1 %}
+                        <span>The data will be created over the course of a single project:</span>
+                    {% else %}{% if project|length >= 2 %}
+                        <span>The data will be created over the course of several projects:</span>
+                    {% endif %}{% endif %}
+                    <br/>
+                    {% for p in project %}
+                        <p>
+                        <span class="ul">Project "{{ p.title }}":</span>
+                        {% if p.description %}
+                            {{ p.description }}
+                        {% endif %}
+                        </p>
+                        <br/>
+                        <p>The project starts at {{ p.start }} and is due to end at {{ p.end }}.
+                        {% if p.funding %}
+                            It will be funded by {{ p.funding.funder_id.funder_id }} ({{ p.funding.funder_id.funder_id_type }}), 
+                            with the Grant ID {{ p.funding.grant_id.grant_id }} ({{ p.funding.grant_id.grant_id_type }}).
+                            {% if p.funding.funding_status %}
+                                The funding status is curently "{{ p.funding.funding_status }}".
+                            {% endif %}
+                        {% endif %}
+                        </p>
+                        <br/>
+                    {% endfor %}
+                    </p>
+                </td>
+            </tr>
+            <tr class="chapter">
+                <th>II</th><th colspan="2">Documentation and Metadata</th>
+            </tr>
+            <tr>
+                <th>II.1</th><th>Metadata standards</td>
+                <td>
+                    {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <p class="ul">Dataset: "{{ d.title }}"</p>
+                        {% endif %}
+                        {% if d.metadata %}
+                            {% for m in d.metadata %}
+                                {% if m.description %}
+                                    <p>{{ m.description }}</p>
+                                {% endif %}
+                                <p>Language: {{ m.language }}</p>
+                                <p>ID: {{ m.metadata_id.metadata_id }} 
+                                    ({{ m.metadata_id.metadata_id_type }})</p>
+                            {% endfor %}
+                        {% endif %}
+                        <br/>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>II.2</th><th>Documentation of data</th>
+                <td>
+                    {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <p class="ul">Dataset: "{{ d.title }}"</p>
+                        {% endif %}
+
+                        {% if project|length == 1 %}
+                            <p>One technical resource is needed for this project:</p>
+                        {% else %}{% if project|length >= 2 %}
+                            <p>Several technical resource are needed for this project:</p>
+                        {% endif %}{% endif %}
+                        
+                        {% if d.technical_resource %}
+                            <ul>
+                            {% for t in d.technical_resource %}
+                                <li>ID: {{ t.resource_id.technical_resource_id }}
+                                    ({{ t.resource_id.technical_resource_id_type }}): 
+                                    <br/>
+                                    {{ t.description }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <br/>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>II.3</th><th>Data quality control</th>
+                <td>
+                    {% for d in dataset %}
+                        {% if d.data_quality_assurance %}
+                            {% if dataset|length > 1 %}
+                                <span class="ul">Dataset: "{{ d.title }}"</span>
+                            {% endif %}
+                            <ul>
+                            {% for q in d.data_quality_assurance %}
+                                <li>{{ q }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <br/>
+                    {% endfor %}
+                </td>
+            </tr>
+
+            <tr class="chapter">
+                <th>III</th><th colspan="2">Data availability and storage</th>
+            </tr>
+            <tr>
+                <th>III.1</th><th>Data sharing strategy</th>
+                <td>
+                    {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
+                        
+                        {% if d.dataset_id %}
+                            {% for did in d.dataset_id %}
+                                <p>ID-{{ loop.index }}: {{ did.dataset_id }}
+                                    ({{ did.dataset_id_type }})</p>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if d.distribution %}
+                            {% for di in d.distribution %}
+                                <p><span class="ul">{{ di.title }}:</span>
+                                    {% if di.description %}
+                                        {{ di.description }}
+                                    {% endif %}
+                                </p>
+                                <p>Access to the data is {{ di.data_access }}.
+                                {% if di.format %}
+                                    It is in {{ di.format }} format
+                                {% endif %}
+                                {% if di.byte_size %}
+                                    with a size of {{ di.byte_size }} bytes
+                                {% endif %}
+                                {% if di.download_url %}
+                                    and can be accessed at 
+                                    <a href="{{ di.download_url }}">{{ di.download_url }}</a>
+                                {% endif %}
+                                {% if di.available_till %}
+                                    where is is available until {{ di.available_till }}
+                                {% endif %}
+                                .
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+                        <br/>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>III.2</th><th>Data storage strategy</th>
+                <td>
+                    {% if cost %}
+                        <p><strong>Cost(s)</strong></p>
+                        <p>
+                            <ul>
+                            {% for c in cost %}
+                                <li>{{ c.title }}: 
+                                    {% if c.value and c.currency_code %}
+                                        {{ c.value }} {{ c.currency_code }} <br/>
+                                    {% endif %}
+                                    {% if c.description %}
+                                        {{ c.description }} 
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </p>
+                        <br/>
+                        {% for d in dataset %}
+                            {% if d.distribution %}
+                                <p class="ul">Dataset: "{{ d.title }}"</p>
+                                {% for di in d.distribution %}
+                                    {% if di.host %}
+                                        <p class="ul">{{ di.title }}</p>
+                                        This distribution is hosted by "{{ di.host.title }}".
+                                        {% if di.host.description %}
+                                            {{ di.host.description }}
+                                        {% endif %}
+                                        {% if di.host.geo_location %}
+                                            This host is located in {{ di.host.geo_location }}. 
+                                        {% endif %}
+                                        {% if di.host.certified_with %}
+                                            It is certified with "{{ di.host.certified_with }}".
+                                        {% endif %}
+                                        {% if di.host.support_versioning %}
+                                            {% if di.host.support_versioning == "yes" %}
+                                                It supports versioning.
+                                            {% elif di.host.support_versioning == "no" %}
+                                                It doesn't support versioning.
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if di.host.backup_type %}
+                                            The backup type used by the host is {{ di.host.backup_type }}.
+                                        {% endif %}
+                                        {% if di.host.backup_frequency %}
+                                            The data is backed with {{ di.host.backup_frequency }} frequency.
+                                        {% endif %}
+                                        {% if di.host.pid_system %}
+                                            The host provides persistent identifiers from the {{ di.host.pid_system }} system.
+                                        {% endif %}
+                                        <br/>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+
+             <tr class="chapter">
+                <th>IV</th><th colspan="2">Legal and ethical aspects</th>
+            </tr>
+            <tr>
+                <th>IV.1</th><th>Legal aspects</th>
+                <td>
+                    {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
+                        {% if d.distribution %}
+                            {% for di in d.distribution %}
+                                {% if d.distribution|length > 1 %}
+                                    <span class="ul">Distribution: "{{ d.title }}"</span>
+                                {% endif %}
+                                
+                                {% if di.license|length == 1 %}
+                                    <p>License:</p>
+                                {% else %}{% if di.license|length >= 2 %}
+                                    <p>Licenses:</p>
+                                {% endif %}{% endif %}
+                                
+                                {% if di.license %}
+                                    <ul>
+                                    {% for l in di.license %}
+                                        <li>
+                                            {{ l.license_ref }} <br/>
+                                            Valid from: {{ l.start_date }}
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <br/>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>IV.2</th><th>Ethical aspects</th>
+                <td>
+                    {% for d in dataset %}
+                        {% if dataset|length > 1 %}
+                            <span class="ul">Dataset: "{{ d.title }}"</span>
+                        {% endif %}
+
+                        <p>Personal data: {{ d.personal_data }}</p>
+
+                        {% if d.preservation_statement %}
+                            <p>Preservation statement: {{ d.preservation_statement }}</p>
+                        {% endif %}
+                        {% for sp in d.security_and_privacy %}
+                            <p>Security & privacy: {{ sp.title }}</p>
+                            {% if sp.description %}
+                                <p>{{ sp.description }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        <p>Sensitive data: {{ d.sensitive_data }}</p> 
+                        <br/>
+                    {% endfor %}
+                    
+                    <p>Ethical issues: {{ ethical_issues_exist }}</p>
+                    {% if ethical_issues_description %}
+                        <p>{{ ethical_issues_description }}</p>
+                    {% endif %}
+                    {% if ethical_issues_report %}
+                        <p>{{ ethical_issues_report }}</p>
+                    {% endif %}
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
