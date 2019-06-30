@@ -34,7 +34,7 @@ In order to compare the original and the converted DMPs we have created a table 
 
 ### Original vs. Generated DMP
 
-text
+The templates of the DMPs have been designed to match the available templates of the FWF and the Horizon 2020 demo reports. Therefore, they have a much clearer appereance compared to the used online editors (like [DMPOnline](https://dmponline.dcc.ac.uk)).
 
 ### Categorical Comparison
 
