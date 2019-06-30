@@ -26,7 +26,11 @@ An example DMP generated with the FWF template is shown below:
 
 ## Comparison
 
-As a first step two Data Management Plans have been created and manually converted into machine-actionable DMPs. In a further step they have been converted back again into a human-readable format. In order to compare the original and the converted DMPs we have created a table with the categories for each section, which are part of the relevant DMP templates. They are either FWF or Horizon 2020. As a start we will do a short overview (1) how they differ. For each category we will check where (2) information got lost and (3) which elements are more detailed. To finish we will discuss (4) which parts of the maDMP were how difficult to generate. 
+As a first step two Data Management Plans have been created and manually converted into machine-actionable DMPs. In a further step they have been converted back again into a human-readable format. The workflow looks simplified as follows:
+
+human-readable (pdf) &rarr; machine-actionable (json) &rarr; human-readable (pdf)
+
+In order to compare the original and the converted DMPs we have created a table with the categories for each section, which are part of the relevant DMP templates. They are either FWF or Horizon 2020. As a start we will do a short overview (1) how they differ. For each category we will check where (2) information got lost and (3) which elements are more detailed. To finish we will discuss (4) which parts of the maDMP were how difficult to generate. 
 
 ### Original vs. Generated DMP
 
@@ -64,3 +68,5 @@ text
 | 6. Other                    		  |                       |                        |
 
 ### Discussion
+
+text
