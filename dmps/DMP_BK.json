@@ -5,19 +5,19 @@
         "contact_id": "https://orcid.org/0000-0002-4537-6648",
         "contact_id_type": "HTTP-ORCID"
       },
-      "mail": "NULL@student.tuwien.ac.at",
+      "mail": "BernhardK@student.tuwien.ac.at",
       "name": "Bernhard Kurz"
     },
     "cost": [{
       "currency_code": "EUR",
       "description": "Resources required to deliver the plan.",
       "title": "DMP costs",
-      "value": "0"
+      "value": "100"
     }],
-    "created": "22-04-2019",
+    "created": "2019-04-22",
     "dm_staff": [{
       "contributor_type": "ContactPerson",
-      "mbox": "null@student.tuwien.ac.at",
+      "mbox": "BernhardK@student.tuwien.ac.at",
       "name": "Bernhard Kurz",
       "staff_id": {
         "staff_id": "",
@@ -38,8 +38,7 @@
       }],
       "description": "Data is collected to analyze the time series of energy balancing as well as traffic statistics. This is done for an experimental research project for a couse at the university.",
       "distribution": [{
-        "access_url": "AGP",
-        "access_url2": "Asfinag",
+        "access_url": "AGP & Asfinag",
         "available_till": "unknown",
         "byte_size": "<10MiB",
         "data_access": "open",
@@ -51,13 +50,13 @@
           "backup_frequency": "unknown",
           "backup_type": "unknown",
           "certified_with": "unknown",
-          "description": "",
+          "description": "The data will be stored in a GitHub repository for Version Control.",
           "geo_location": "US",
           "pid_system": [
             "doi"
           ],
           "support_versioning": "yes",
-          "title": "Kaggle"
+          "title": "GitHub"
         },
         "license": [{
           "license_ref": "MIT License",
@@ -65,16 +64,16 @@
         }],
         "title": "Data Stewardship DMP Exercise"
       }],
-      "issued": "NULL",
+      "issued": "2019-06-30",
       "keyword": [
-        "Breast Cancer", "Arrhythmia"
+        "Traffic Statistics", "Energy Balancing"
       ],
       "language": "en",
       "metadata": [{
-        "description": "NULL",
+        "description": "metadata information",
         "language": "en",
         "metadata_id": {
-          "metadata_id": "https://github.com/buboh/data-stewardship-ex1",
+          "metadata_id": "https://github.com/Rechnerpraktikum/DataStewards",
           "metadata_id_type": "URL"
         }
       }],
@@ -92,32 +91,32 @@
           "technical_resource_id_type": "custom"
         }
       }],
-      "title": "NULL",
+      "title": "Energy Balancing Statitics & Traffic Statistics",
       "type": "dataset"
     }],
-    "description": "NULL",
-    "ethical_issues_description": "NULL",
+    "description": "This DMP describes the data management of the two given datasets and aims to provide as many metadata as possible.",
+    "ethical_issues_description": "unknown",
     "ethical_issues_exist": "unknown",
-    "ethical_issues_report": "NULL",
-    "language": "NULL",
-    "modified": "NULL",
+    "ethical_issues_report": "unknown",
+    "language": "English",
+    "modified": "2019-04-22",
     "project": [{
-      "description": "NULL",
-      "end": "NULL",
+      "description": "Data Stewardship Lecture",
+      "end": "2019-07-01",
       "funding": {
         "funder_id": {
-          "funder_id": "NULL",
-          "funder_id_type": "NULL"
+          "funder_id": "1",
+          "funder_id_type": "custom"
         },
-        "funding_status": "NULL",
+        "funding_status": "granted",
         "grant_id": {
-          "grant_id": "NULL",
-          "grant_id_type": "NULL"
+          "grant_id": "2",
+          "grant_id_type": "custom"
         }
       },
-      "start": "NULL",
-      "title": "NULL"
+      "start": "2019-06-30",
+      "title": "University Project"
     }],
-    "title": "NULL"
+    "title": "DataStewards Exercise"
   }
 }
