@@ -54,22 +54,29 @@
 <tr>
 <td>2.1</td>
 <td>2.1. Making data findable, including provisions for metadata</td>
-<td>{{ dmp_id.dmp_id }} {{ dmp_id.dmp_id_type }} {% for d in dataset %} {{ d.issued }} {{ d.keyword }} {{ d.language }} {{ d.title }} {{ d.type }} {% endfor %} {% for d in dataset %} {{ d.dataset_id.dataset_id }} {{ d.dataset_id.dataset_id_type }} {% for m in d.metadata %} {{ m.description }} {{ m.language }} {{ m.metadata_id.metadata_id }} {{ m.metadata_id.metadata_id_type }} {% endfor %} {% endfor %} {% for d in dataset %} {% for t in d.technical_resource %} {{ t.description }} {{ t.resource_id.technical_resource_id }} {{ t.resource_id.technical_resource_id_type }} {% endfor %} {% endfor %}</td>
+<td>
+<p>The dmp is available under the {{ dmp_id.dmp_id_type }} {{ dmp_id.dmp_id }} and&nbsp;can&nbsp;be&nbsp;found with the keywords&nbsp;{{ d.keyword }}.</p>
+<p>The data has been issued on {% for d in dataset %} {{ d.issued }} in&nbsp;{{ d.language }}&nbsp;with the title {{ d.title }} and consists&nbsp;of&nbsp;files with&nbsp;{{ d.type }} {% endfor %}.</p>
+<p>The dataset can be identified with the {% for d in dataset %} {{ d.dataset_id.dataset_id_type }} and the id {{ d.dataset_id.dataset_id }}</p>
+<p>The metadata contain {% for m in d.metadata %} {{ m.description }} in the language {{ m.language }}</p>
+<p>The metadata can be identified with {{ m.metadata_id.metadata_id_type }} {{ m.metadata_id.metadata_id }} {% endfor %} {% endfor %}</p>
+<p>Therefore, these technical resources are required: {% for d in dataset %} {% for t in d.technical_resource %} {{ t.description }}<br />Resource-ID: {{ t.resource_id.technical_resource_id }}<br />Resource-Type: {{ t.resource_id.technical_resource_id_type }} {% endfor %} {% endfor %}</p>
+</td>
 </tr>
 <tr>
 <td>2.2</td>
 <td>2.2 Making data openly accessible</td>
-<td>{% for d in dataset %} {% for di in d.distribution %} {{ di.access_url }} {{ di.available_till }} {{ di.byte_size }} {{ di.data_access }} {{ di.description }} {{ di.download_url }} {{ di.format }} {{ di.title }} {% endfor %} {% endfor %}</td>
+<td>The dataset is available under the URL {% for d in dataset %} {% for di in d.distribution %} {{ di.access_url }} and is available till {{ di.available_till }}.<br />The size of the dataset is about {{ di.byte_size }} and {{ di.data_access }}. It contains {{ di.description }} and can be downloaded under {{ di.download_url }}&nbsp;in the format {{ di.format }}&nbsp;with the title&nbsp;{{ di.title }} {% endfor %} {% endfor %}</td>
 </tr>
 <tr>
 <td>2.3</td>
 <td>2.3. Making data interoperable</td>
-<td>{% for d in dataset %} {% for di in d.distribution %} {{ di.host.availability }} {{ di.host.backup_frequency }} {{ di.host.backup_type }} {{ di.host.certified_with }} {{ di.host.description }} {{ di.host.geo_location }} {{ di.host.pid_system }} {{ di.host.support_version }} {{ di.host.title }} {% endfor %} {% endfor %}</td>
+<td>Distribution: <br />{% for d in dataset %} {% for di in d.distribution %}<br />Availablility: {{ di.host.availability }}<br />Backup-Frequency: {{ di.host.backup_frequency }}<br />Backup-Type: {{ di.host.backup_type }}<br />Certification: {{ di.host.certified_with }} {{ di.host.description }}<br />Geo-Location and PID: {{ di.host.geo_location }}, {{ di.host.pid_system }}, {{ di.host.support_version }}<br />Name of the Repository: {{ di.host.title }} {% endfor %} {% endfor %}</td>
 </tr>
 <tr>
 <td>2.4</td>
 <td>2.4. Increase data re-use (through clarifying licences)</td>
-<td>{% for d in dataset %} {{ d.data_quality_assurance}} {% endfor %} {% for d in dataset %} {% for di in d.distribution %} {{ di.license.license_ref }} {{ di.license.start_date }} {% endfor %} {% endfor %}</td>
+<td>Data Quality: {% for d in dataset %} {{ d.data_quality_assurance}} {% endfor %}<br />License: {% for d in dataset %} {% for di in d.distribution %} {{ di.license.license_ref }},&nbsp;start-date: {{ di.license.start_date }} {% endfor %} {% endfor %}</td>
 </tr>
 <tr class="chapter">
 <td>3</td>
@@ -79,7 +86,14 @@
 <tr>
 <td>&nbsp;</td>
 <td>Allocation of resources</td>
-<td>{% for c in cost %} {{ c.currency_code }} {{ c.description }} {{ c.title }} {{ c.value }} {% endfor %} {% for s in dm_staff %} {{ s.contributor_type }} {{ s.mbox }} {{ s.name }} {{ s.staff_id.staff_id }} {{ s.staff_id.staff_id_type }} {% endfor %} {% for p in project %} {{ p.description }} {{ p.end }} {{ p.funding.funder_id.funder_id }} {{ p.funding.funder_id.funder_id_type }} {{ p.funding.funding_status }} {{ p.funding.grant_id.grant_id }} {{ p.funding.grant_id.grant_id_type }} {{ p.start }} {{ p.title }} {% endfor %}</td>
+<td>
+<p>The cost for the dmp are about {% for c in cost %} {{ c.value }}{{ c.currency_code }} and are about {{ c.description }}. They are called&nbsp;{{ c.title }} {% endfor %}</p>
+<p>The following staff contributes to the project:<br />{% for s in dm_staff %} {{ s.name }} ({{ s.contributor_type }},&nbsp;E-Mail: {{ s.mbox }}, ID:&nbsp;{{ s.staff_id.staff_id }}, {{ s.staff_id.staff_id_type }} {% endfor %}</p>
+<p>Project:&nbsp;{% for p in project %} {{ p.title }}</p>
+<p>Project&nbsp;Start and End date:</p>
+<p>{{ p.start }} - {{ p.end }}</p>
+<p>The project is about {{ p.description }}&nbsp; and&nbsp;has the following funder details:<br />ID: {{ p.funding.funder_id.funder_id }} ({{p.funding.funder_id.funder_id_type }})<br />Status: {{ p.funding.funding_status }}<br />Grant-ID &amp; Type: {{ p.funding.grant_id.grant_id }}, {{p.funding.grant_id.grant_id_type }}&nbsp; {% endfor %}</p>
+</td>
 </tr>
 <tr class="chapter">
 <td>4</td>
@@ -89,7 +103,7 @@
 <tr>
 <td>&nbsp;</td>
 <td>Data security</td>
-<td>{% for d in dataset %} {{ d.security_and_privacy.description }} {{ d.security_and_privacy.title }} {{ d.sensitive_data }} {% endfor %}</td>
+<td>{% for d in dataset %}<br /><br />Title: {{ d.security_and_privacy.title }}<br />Description: {{ d.security_and_privacy.description }}<br />Sensitive data: {{ d.sensitive_data }}<br /><br />{% endfor %}</td>
 </tr>
 <tr class="chapter">
 <td>5</td>
@@ -99,7 +113,10 @@
 <tr>
 <td>&nbsp;</td>
 <td>Ethical aspects</td>
-<td>{% for d in dataset %} {{ d.personal_data }} {{ d.preservation_statement }} {% endfor %} {{ ethical_issues_description.description }} {{ ethical_issues_existis }} {{ ethical_issues_report }}</td>
+<td>
+<p>{% for d in dataset %}<br />Personal data: {{ d.personal_data }}<br />Preservation Statement: {{ d.preservation_statement }}<br />{% endfor %}</p>
+<p>The&nbsp;following&nbsp;ethical issues have&nbsp;been reported:<br />{{ ethical_issues_description.description }}<br />Exist: {{ ethical_issues_existis }}<br />Report: {{ ethical_issues_report }}</p>
+</td>
 </tr>
 <tr class="chapter">
 <td>6</td>
@@ -109,7 +126,7 @@
 <tr>
 <td>&nbsp;</td>
 <td>Other</td>
-<td>&nbsp;</td>
+<td><span style="background-color: #aaaaaa;">-</span></td>
 </tr>
 </tbody>
 </table>
