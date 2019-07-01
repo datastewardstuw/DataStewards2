@@ -41,7 +41,7 @@ The templates of the DMPs have been designed to match the available templates of
 #### FWF Template
 As the original Data Management Plan was the basis for the generated one, they should not differ very much, because each information should be the same or at least similar.
 
-The DMPs can be found in the directory "dmps" in the [GitHub Repo](https://github.com/datastewardstuw/DataStewards2/tree/master/dmps)
+The DMPs can be found in the directory "dmps" in the [GitHub Repo](https://github.com/datastewardstuw/DataStewards2/tree/master/dmps). 
 For comparison we used 
 - the Original DMPs ([DMP_1_ML](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/original/DMP_1_ML.pdf) and [DMP_2_BK](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/original/DMP_2_BK.pdf)), 
 - the maDMPs ([DMP_ML_full](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_ML_full.json) and [DMP_BK](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_BK.json) and ) and finally 
@@ -62,22 +62,26 @@ For comparison we used
 | IV.1 Legal aspects                    | License is included. | License is included with dates. |
 | IV.2 Ethical aspects                  | All ethical issues have been addressed and discussed. | All information has been taken along and added with preservation statements. |
 
+#### Horizon 2020 Template
 
+The Horizon 2020 Output is almost the same as the FWF template with different changes in the categories. For a better compability we used the same layout, but obviously with different categories and subcategories.
 
+All DMP plans stay the same with exception of the generated DMPs ([DMP_BK_HORIZON_out](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_BK_HORIZON_out.pdf) and [DMP_ML_full_HORIZON_out](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_ML_full_HORIZON_out.pdf))
 
-| **Horizon 2020**                    | Original DMP          | Generated DMP          |
-| --------                            | --------              | --------               |
-| 1. Data summary        	          |                       |                        |
-| 2. FAIR Data                	      |                       |                        |
-| 2.1. Making data findable (metadata)|                       |                        |
-| 2.2 Making data openly accessible   |                       |                        |
-| 2.3. Making data interoperable 	  |                       |                        |
-| 2.4. Increase data re-use (licences)|                       |                        |
-| 3. Allocation of resources          |                       |                        |
-| 4. Data security             		  |                       |                        |
-| 5. Ethical aspects        		  |                       |                        |
-| 6. Other                    		  |                       |                        |
+As the all six main categories use the same attributes or the same information from the machine-actionable DMP, the information remains the same. To have a better overview we will show them here:
+1. Data summary
+2. FAIR Data
+    2.1 Making data findable (metadata)
+    2.2 Making data openly accessible
+    2.3 Making data interoperable
+    2.4 Increase data re-use (licences)
+3. Allocation of resources
+4. Data security
+5. Ethical aspects
+6. Other
 
 ### Discussion
 
-text
+As already mentioned both DMP templates have the same information basis and contain mostly the same information. There are some differences but mainly with regard to the design. Overall, it makes sense to use machine-actionable DMPs to generate human-readable Data Management Plans, because the always result in the same design and the are or can be restricted with different rules to ensure a good level of data quality. One hard thing is to explain each part as good as possible, so that the understanding of a clause is almost the same for everyone. This is a tricky part, but can be almost bypassed by meaningful explanations and samples.
+
+By creating the machine-actionable DMPs we encountered a few misleading fields, which required some reading to better understand the meaning of the fields. This could be improved but nevertheless all fields already contain a good definition of the requested information.
