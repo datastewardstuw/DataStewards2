@@ -38,20 +38,31 @@ The templates of the DMPs have been designed to match the available templates of
 
 ### Categorical Comparison
 
-| **FWF**                             | Original DMP          | Generated DMP          |
-| --------                            | --------              | --------               |
-| I Data Characteristics	          |                       |                        |
-| I.1 Description of the data	      |                       |                        |
-| II Documentation and Metadata		  |                       |                        |
-| II.1 Metadata standards		      |                       |                        |
-| II.2 Documentation of data		  |                       |                        |
-| II.3 Data quality control		      |                       |                        |
-| III Data Availability and Storage	  |                       |                        |
-| III.1 Data sharing strategy		  |                       |                        |
-| III.2 Data storage strategy		  |                       |                        |
-| IV Legal and Ethical Aspects		  |                       |                        |
-| IV.1 Legal aspects				  |                       |                        |
-| IV.2 Ethical aspects                |                       |                        |
+#### FWF Template
+As the original Data Management Plan was the basis for the generated one, they should not differ very much, because each information should be the same or at least similar.
+
+The DMPs can be found in the directory "dmps" in the [GitHub Repo](https://github.com/datastewardstuw/DataStewards2/tree/master/dmps)
+For comparison we used 
+- the Original DMPs ([DMP_1_ML](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/original/DMP_1_ML.pdf) and [DMP_2_BK](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/original/DMP_2_BK.pdf)), 
+- the maDMPs ([DMP_ML_full](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_ML_full.json) and [DMP_BK](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_BK.json) and ) and finally 
+- the generated DMPs ([DMP_BK_FWF_out](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_BK_FWF_out.pdf) and [DMP_ML_full_FWF_out](https://github.com/datastewardstuw/DataStewards2/blob/master/dmps/DMP_ML_full_FWF_out.pdf))
+
+| **FWF**                               | original DMP                  | converted DMP                 |
+| ----------                            | ----------                    | ----------                    |
+| **I Data Characteristics**            |                           |                               |
+| I.1 Description of the data           | More information about how the data is processed, the programming environments and where it is from.| More information about the project team, different deadlines and funding statuses.|
+| **II Documentation and Metadata**     | | |
+| II.1 Metadata standards               | Describes the metadata information very well. | Misses some key facts about Metadata.|
+| II.2 Documentation of data            | Well described. | Information about how the data has been documented got lost in the transformation. |
+| II.3 Data quality control             | Was not part of it. | Is also unknown. |
+| **III Data Availability and Storage** |                           |                        |
+| III.1 Data sharing strategy           | Readme files and DOI are already included. | All information was transformed very well.
+| III.2 Data storage strategy           | All relevant (and available) information is already contained. | All available with the bonus of extimated project costs. |
+| **IV Legal and Ethical Aspects**      |                           |                        |
+| IV.1 Legal aspects                    | License is included. | License is included with dates. |
+| IV.2 Ethical aspects                  | All ethical issues have been addressed and discussed. | All information has been taken along and added with preservation statements. |
+
+
 
 
 | **Horizon 2020**                    | Original DMP          | Generated DMP          |
